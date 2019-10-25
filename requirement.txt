@@ -18,3 +18,6 @@ scipy>=0.13.2
 opencv-python
 setproctitle
 msgpack_numpy
+
+pycocotools
+Pillow
