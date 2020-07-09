@@ -6,8 +6,8 @@ import numpy as np
 class Config:
     
     ## dataset
-    dataset = 'PoseTrack' # 'COCO', 'PoseTrack', 'MPII'
-    testset = 'val' # train, test, val (there is no validation set for MPII)
+    dataset = 'MPII' # 'COCO', 'PoseTrack', 'MPII'
+    testset = 'train' # train, test, val (there is no validation set for MPII)
 
     ## directory
     cur_dir = osp.dirname(os.path.abspath(__file__))
