@@ -1,4 +1,4 @@
-# Get annotations
+# How to set up MPII dataset
 ## Download annotataions
 ```
 wget http://datasets.d2.mpi-inf.mpg.de/leonid14cvpr/mpii_human_pose_v1_u12_1.tar.gz
