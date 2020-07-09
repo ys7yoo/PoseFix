@@ -31,4 +31,7 @@ python3 ../../../tool/mpii2coco.py
 ```
 
 ## Results
+* `train.json` (16 MB)
+* `test.json` (533KB)
+=> Put them under `data/MPII/annotations`
 
