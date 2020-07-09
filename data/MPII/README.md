@@ -11,6 +11,19 @@ curl -OL http://datasets.d2.mpi-inf.mpg.de/leonid14cvpr/mpii_human_pose_v1_u12_1
 tar zxvf mpii_human_pose_v1_u12_1.tar.gz
 ```
 
+## Download or link images
+
+```
+wget http://datasets.d2.mpi-inf.mpg.de/andriluka14cvpr/mpii_human_pose_v1.tar.gz
+tar zxvf mpii_human_pose_v1.tar.gz
+```
+
+```
+ln -s /mnt/data/MPII/images .
+```
+
+
+
 ## Convert to COCO format
 ```
 cd mpii_human_pose_v1_u12_1
