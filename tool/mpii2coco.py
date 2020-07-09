@@ -4,6 +4,8 @@ import os
 import os.path as osp
 import numpy as np
 import json
+import sys
+from tqdm import tqdm
 
 # run this code in the 'mpii_human_pose_v1_u12_2' folder
 
@@ -20,16 +22,24 @@ def check_empty(list,name):
         return True
 
 
-db_type = 'train' # train, test
+if len(sys.argv) < 2:
+    print("[Error] Provide database type (train or test) in the input argument.")
+    exit(1)
+
+db_type = sys.argv[1]
+# db_type = 'train' # train, test
 annot_file = loadmat('mpii_human_pose_v1_u12_1')['RELEASE']
-save_path = '../annotations/' + db_type + '.json'
+save_path = db_type + '.json'
+
+# osp.join()
+# save_path = '../annotations/' + db_type + '.json'
 
 joint_num = 16
 img_num = len(annot_file['annolist'][0][0][0])
 
 aid = 0
 coco = {'images': [], 'categories': [], 'annotations': []}
-for img_id in range(img_num):
+for img_id in tqdm(range(img_num)):
     
     if ((db_type == 'train' and annot_file['img_train'][0][0][0][img_id] == 1) or (db_type == 'test' and annot_file['img_train'][0][0][0][img_id] == 0)) and \
         check_empty(annot_file['annolist'][0][0][0][img_id],'annorect') == False: #any person is annotated
@@ -114,4 +124,7 @@ coco['categories'] = [category]
 
 with open(save_path, 'w') as f:
     json.dump(coco, f)
+
+
+
 
